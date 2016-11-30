@@ -1,6 +1,6 @@
 import SpriteKit
 
-class Tomato: SKNode {
+public class Tomato: SKNode {
     
     let sprite: SKSpriteNode
 
@@ -18,7 +18,7 @@ class Tomato: SKNode {
         addChild(sprite)
     }
     
-    private class func createPhysics(radius : CGFloat) -> SKPhysicsBody {
+    public class func createPhysics(radius : CGFloat) -> SKPhysicsBody {
         let p = SKPhysicsBody(circleOfRadius: radius)
         p.friction = 0
         p.categoryBitMask = Mask.tomato.rawValue
@@ -28,6 +28,7 @@ class Tomato: SKNode {
         p.linearDamping = 0
         p.usesPreciseCollisionDetection = true
         p.restitution = 0
+        //p.isDynamic = false
         return p
     }
     
@@ -36,7 +37,7 @@ class Tomato: SKNode {
     }
     
     func tryJump(){
-        if isOnGround{
+        if isOnGround {
             physicsBody!.velocity.dy = jumpSpeed
             physicsBody!.velocity.dx = jumpSpeed/2
         }
@@ -51,7 +52,7 @@ class Tomato: SKNode {
         isOnGround = false
     }*/
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

@@ -20,10 +20,15 @@ class ContactManager: NSObject, SKPhysicsContactDelegate {
         } else{ return }
         //Tomato always the lesser mask
         let tom = ndA as! Tomato
+        
         if ndB.isKind(of: Platform.self){
             if checkGround(tom, ndB as! Platform){
                 //tom.touchedGround() Nao funcionou tao bem, SpriteKit bugado =( ver GameScene
             }
+        }
+        
+        if ndB.isKind(of: Collectable.self) {
+            ndB.removeFromParent()
         }
     }
     
@@ -37,6 +42,7 @@ class ContactManager: NSObject, SKPhysicsContactDelegate {
         if ndB.isKind(of: Platform.self){
             if checkGround(tom, ndB as! Platform){
                 //tom.leftGround() Nao funcionou tao bem infelizmente, SpriteKit bugado =( ver GameScene
+                //tom.physicsBody = Tomato.createPhysics(radius: 30) testar se está mudando depois de colidir
             }
         }
     }

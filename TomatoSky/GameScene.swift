@@ -3,32 +3,50 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    private var tomato : Tomato!
-    private var contactManager : ContactManager!
+    private var tomato: Tomato!
+    private var contactManager: ContactManager!
     
-    private var platforms : [Platform]!
+    private var platforms: [Platform]!
+    private var collectables: [Collectable]!
     
     override func didMove(to view: SKView) {
-        
         contactManager = ContactManager()
         tomato = Tomato()
         physicsWorld.contactDelegate = contactManager
-        tomato.position = CGPoint(x:size.width/4,y:size.height/2)
+        tomato.position = CGPoint(x:size.width/4,y:size.height/4 + 100) //+30
         addChild(tomato)
         
         platforms = [Platform]()
         addPlatform(x: size.width/4, y: size.height/4)
         addPlatform(x: 2*size.width/3, y: size.height/3)
+        
+        collectables = [Collectable]()
+        addCollectable(x: size.width/4 + 15, y: size.height/4 + 20)
+        addCollectable(x: 2*size.width/3, y: size.height/3 + 20)
+        
     }
     
-    func addPlatform(x: CGFloat, y: CGFloat){
+    func addPlatform(x: CGFloat, y: CGFloat) {
         let p = Platform()
+        
         p.position = CGPoint(x: x, y: y)
         platforms.append(p)
         addChild(p)
     }
     
+    func addCollectable(x: CGFloat, y: CGFloat) {
+        let c = Collectable()
+        
+        c.position = CGPoint(x: x, y: y)
+        collectables.append(c)
+        addChild(c)
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        /*if (tomato.physicsBody?.isDynamic)! {
+            print("a")
+        }
+        tomato.physicsBody?.isDynamic = true*/
         tomato.tryJump()
     }
     
@@ -45,6 +63,8 @@ class GameScene: SKScene {
         }
         print(tomato.isOnGround)
     }
+    
+    
     
     private func searchFloor(nodes : [SKNode]) -> Platform?{
         for nd in nodes{

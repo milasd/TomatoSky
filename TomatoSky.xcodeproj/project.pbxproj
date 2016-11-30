@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		06067B341DE726C0001E1EA9 /* TomatoSkyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06067B331DE726C0001E1EA9 /* TomatoSkyTests.swift */; };
 		06067B3F1DE726C0001E1EA9 /* TomatoSkyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06067B3E1DE726C0001E1EA9 /* TomatoSkyUITests.swift */; };
+		0663F8C51DEE95B400297C1D /* Collectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0663F8C41DEE95B300297C1D /* Collectable.swift */; };
 		0665B4A41DE727E0005E804B /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0665B4951DE727E0005E804B /* Actions.sks */; };
 		0665B4A51DE727E0005E804B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0665B4961DE727E0005E804B /* AppDelegate.swift */; };
 		0665B4A61DE727E0005E804B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0665B4971DE727E0005E804B /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		06067B3A1DE726C0001E1EA9 /* TomatoSkyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TomatoSkyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06067B3E1DE726C0001E1EA9 /* TomatoSkyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomatoSkyUITests.swift; sourceTree = "<group>"; };
 		06067B401DE726C0001E1EA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0663F8C41DEE95B300297C1D /* Collectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collectable.swift; sourceTree = "<group>"; };
 		0665B4951DE727E0005E804B /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		0665B4961DE727E0005E804B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0665B4971DE727E0005E804B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				0665B4A11DE727E0005E804B /* Mask.swift */,
 				0665B4A21DE727E0005E804B /* Platform.swift */,
 				0665B4A31DE727E0005E804B /* Tomato.swift */,
+				0663F8C41DEE95B300297C1D /* Collectable.swift */,
 			);
 			path = TomatoSky;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				0665B4A91DE727E0005E804B /* ContactManager.swift in Sources */,
 				0665B4B01DE727E0005E804B /* Tomato.swift in Sources */,
 				0665B4A51DE727E0005E804B /* AppDelegate.swift in Sources */,
+				0663F8C51DEE95B400297C1D /* Collectable.swift in Sources */,
 				0665B4AE1DE727E0005E804B /* Mask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
