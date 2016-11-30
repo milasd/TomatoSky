@@ -12,7 +12,10 @@ class ContactManager: NSObject, SKPhysicsContactDelegate {
     */
     
     func didBegin(_ contact: SKPhysicsContact) {
-        let ndA: SKNode, ndB: SKNode
+        let ndA: SKNode
+        
+        var ndB: SKNode
+        
         //Safe check
         if let p = sortAndCheck(contact: contact){
             ndA = p.0
@@ -26,10 +29,10 @@ class ContactManager: NSObject, SKPhysicsContactDelegate {
                 //tom.touchedGround() Nao funcionou tao bem, SpriteKit bugado =( ver GameScene
             }
         }
-        
         if ndB.isKind(of: Collectable.self) {
             ndB.removeFromParent()
         }
+        
     }
     
     func didEnd(_ contact: SKPhysicsContact) {

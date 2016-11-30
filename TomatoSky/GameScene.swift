@@ -21,8 +21,8 @@ class GameScene: SKScene {
         addPlatform(x: 2*size.width/3, y: size.height/3)
         
         collectables = [Collectable]()
-        addCollectable(x: size.width/4 + 15, y: size.height/4 + 20)
-        addCollectable(x: 2*size.width/3, y: size.height/3 + 20)
+        addCollectable(x: size.width/4 + 15, y: size.height/4 + 30)
+        addCollectable(x: 2*size.width/3, y: size.height/3 + 30)
         
     }
     
@@ -66,9 +66,9 @@ class GameScene: SKScene {
     
     
     
-    private func searchFloor(nodes : [SKNode]) -> Platform?{
+    private func searchFloor(nodes : [SKNode]) -> Platform? {
         for nd in nodes{
-            if let p = nd as? Platform{
+            if let p = nd as? Platform {
                 return p
             }
         }

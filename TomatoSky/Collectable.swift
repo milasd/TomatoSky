@@ -18,9 +18,14 @@ class Collectable: SKSpriteNode {
     
     private class func createPhysics(size: CGSize) -> SKPhysicsBody {
         let p = SKPhysicsBody(rectangleOf: size)
+        
         p.friction = 0
-        p.categoryBitMask = Mask.collectable.rawValue
         p.isDynamic = false
+        p.usesPreciseCollisionDetection = true
+        p.categoryBitMask = Mask.collectable.rawValue
+        p.collisionBitMask = 0
+        p.contactTestBitMask = Mask.tomato.rawValue | Mask.collectable.rawValue
+        
         return p
     }
     
