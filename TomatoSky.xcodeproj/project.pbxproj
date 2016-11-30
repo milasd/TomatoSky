@@ -1,0 +1,568 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		06067B341DE726C0001E1EA9 /* TomatoSkyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06067B331DE726C0001E1EA9 /* TomatoSkyTests.swift */; };
+		06067B3F1DE726C0001E1EA9 /* TomatoSkyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06067B3E1DE726C0001E1EA9 /* TomatoSkyUITests.swift */; };
+		0665B4A41DE727E0005E804B /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0665B4951DE727E0005E804B /* Actions.sks */; };
+		0665B4A51DE727E0005E804B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0665B4961DE727E0005E804B /* AppDelegate.swift */; };
+		0665B4A61DE727E0005E804B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0665B4971DE727E0005E804B /* Assets.xcassets */; };
+		0665B4A71DE727E0005E804B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0665B4981DE727E0005E804B /* LaunchScreen.storyboard */; };
+		0665B4A81DE727E0005E804B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0665B49A1DE727E0005E804B /* Main.storyboard */; };
+		0665B4A91DE727E0005E804B /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0665B49C1DE727E0005E804B /* ContactManager.swift */; };
+		0665B4AA1DE727E0005E804B /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0665B49D1DE727E0005E804B /* GameScene.sks */; };
+		0665B4AB1DE727E0005E804B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0665B49E1DE727E0005E804B /* GameScene.swift */; };
+		0665B4AC1DE727E0005E804B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0665B49F1DE727E0005E804B /* GameViewController.swift */; };
+		0665B4AD1DE727E0005E804B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0665B4A01DE727E0005E804B /* Info.plist */; };
+		0665B4AE1DE727E0005E804B /* Mask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0665B4A11DE727E0005E804B /* Mask.swift */; };
+		0665B4AF1DE727E0005E804B /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0665B4A21DE727E0005E804B /* Platform.swift */; };
+		0665B4B01DE727E0005E804B /* Tomato.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0665B4A31DE727E0005E804B /* Tomato.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		06067B301DE726C0001E1EA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 06067B0D1DE726C0001E1EA9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 06067B141DE726C0001E1EA9;
+			remoteInfo = TomatoSky;
+		};
+		06067B3B1DE726C0001E1EA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 06067B0D1DE726C0001E1EA9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 06067B141DE726C0001E1EA9;
+			remoteInfo = TomatoSky;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		06067B151DE726C0001E1EA9 /* TomatoSky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TomatoSky.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		06067B2F1DE726C0001E1EA9 /* TomatoSkyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TomatoSkyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		06067B331DE726C0001E1EA9 /* TomatoSkyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomatoSkyTests.swift; sourceTree = "<group>"; };
+		06067B351DE726C0001E1EA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06067B3A1DE726C0001E1EA9 /* TomatoSkyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TomatoSkyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		06067B3E1DE726C0001E1EA9 /* TomatoSkyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomatoSkyUITests.swift; sourceTree = "<group>"; };
+		06067B401DE726C0001E1EA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0665B4951DE727E0005E804B /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		0665B4961DE727E0005E804B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0665B4971DE727E0005E804B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0665B4991DE727E0005E804B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0665B49B1DE727E0005E804B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0665B49C1DE727E0005E804B /* ContactManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
+		0665B49D1DE727E0005E804B /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		0665B49E1DE727E0005E804B /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		0665B49F1DE727E0005E804B /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		0665B4A01DE727E0005E804B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0665B4A11DE727E0005E804B /* Mask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mask.swift; sourceTree = "<group>"; };
+		0665B4A21DE727E0005E804B /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		0665B4A31DE727E0005E804B /* Tomato.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tomato.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		06067B121DE726C0001E1EA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06067B2C1DE726C0001E1EA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06067B371DE726C0001E1EA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		06067B0C1DE726C0001E1EA9 = {
+			isa = PBXGroup;
+			children = (
+				0665B4941DE727E0005E804B /* TomatoSky */,
+				06067B321DE726C0001E1EA9 /* TomatoSkyTests */,
+				06067B3D1DE726C0001E1EA9 /* TomatoSkyUITests */,
+				06067B161DE726C0001E1EA9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		06067B161DE726C0001E1EA9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				06067B151DE726C0001E1EA9 /* TomatoSky.app */,
+				06067B2F1DE726C0001E1EA9 /* TomatoSkyTests.xctest */,
+				06067B3A1DE726C0001E1EA9 /* TomatoSkyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		06067B321DE726C0001E1EA9 /* TomatoSkyTests */ = {
+			isa = PBXGroup;
+			children = (
+				06067B331DE726C0001E1EA9 /* TomatoSkyTests.swift */,
+				06067B351DE726C0001E1EA9 /* Info.plist */,
+			);
+			path = TomatoSkyTests;
+			sourceTree = "<group>";
+		};
+		06067B3D1DE726C0001E1EA9 /* TomatoSkyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				06067B3E1DE726C0001E1EA9 /* TomatoSkyUITests.swift */,
+				06067B401DE726C0001E1EA9 /* Info.plist */,
+			);
+			path = TomatoSkyUITests;
+			sourceTree = "<group>";
+		};
+		0665B4941DE727E0005E804B /* TomatoSky */ = {
+			isa = PBXGroup;
+			children = (
+				0665B4951DE727E0005E804B /* Actions.sks */,
+				0665B4961DE727E0005E804B /* AppDelegate.swift */,
+				0665B4971DE727E0005E804B /* Assets.xcassets */,
+				0665B4981DE727E0005E804B /* LaunchScreen.storyboard */,
+				0665B49A1DE727E0005E804B /* Main.storyboard */,
+				0665B49C1DE727E0005E804B /* ContactManager.swift */,
+				0665B49D1DE727E0005E804B /* GameScene.sks */,
+				0665B49E1DE727E0005E804B /* GameScene.swift */,
+				0665B49F1DE727E0005E804B /* GameViewController.swift */,
+				0665B4A01DE727E0005E804B /* Info.plist */,
+				0665B4A11DE727E0005E804B /* Mask.swift */,
+				0665B4A21DE727E0005E804B /* Platform.swift */,
+				0665B4A31DE727E0005E804B /* Tomato.swift */,
+			);
+			path = TomatoSky;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		06067B141DE726C0001E1EA9 /* TomatoSky */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06067B431DE726C0001E1EA9 /* Build configuration list for PBXNativeTarget "TomatoSky" */;
+			buildPhases = (
+				06067B111DE726C0001E1EA9 /* Sources */,
+				06067B121DE726C0001E1EA9 /* Frameworks */,
+				06067B131DE726C0001E1EA9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TomatoSky;
+			productName = TomatoSky;
+			productReference = 06067B151DE726C0001E1EA9 /* TomatoSky.app */;
+			productType = "com.apple.product-type.application";
+		};
+		06067B2E1DE726C0001E1EA9 /* TomatoSkyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06067B461DE726C0001E1EA9 /* Build configuration list for PBXNativeTarget "TomatoSkyTests" */;
+			buildPhases = (
+				06067B2B1DE726C0001E1EA9 /* Sources */,
+				06067B2C1DE726C0001E1EA9 /* Frameworks */,
+				06067B2D1DE726C0001E1EA9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				06067B311DE726C0001E1EA9 /* PBXTargetDependency */,
+			);
+			name = TomatoSkyTests;
+			productName = TomatoSkyTests;
+			productReference = 06067B2F1DE726C0001E1EA9 /* TomatoSkyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		06067B391DE726C0001E1EA9 /* TomatoSkyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06067B491DE726C0001E1EA9 /* Build configuration list for PBXNativeTarget "TomatoSkyUITests" */;
+			buildPhases = (
+				06067B361DE726C0001E1EA9 /* Sources */,
+				06067B371DE726C0001E1EA9 /* Frameworks */,
+				06067B381DE726C0001E1EA9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				06067B3C1DE726C0001E1EA9 /* PBXTargetDependency */,
+			);
+			name = TomatoSkyUITests;
+			productName = TomatoSkyUITests;
+			productReference = 06067B3A1DE726C0001E1EA9 /* TomatoSkyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		06067B0D1DE726C0001E1EA9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Mila Soares de Oliveira de Souza";
+				TargetAttributes = {
+					06067B141DE726C0001E1EA9 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 4FXVFKNYW6;
+						ProvisioningStyle = Automatic;
+					};
+					06067B2E1DE726C0001E1EA9 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 06067B141DE726C0001E1EA9;
+					};
+					06067B391DE726C0001E1EA9 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 06067B141DE726C0001E1EA9;
+					};
+				};
+			};
+			buildConfigurationList = 06067B101DE726C0001E1EA9 /* Build configuration list for PBXProject "TomatoSky" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 06067B0C1DE726C0001E1EA9;
+			productRefGroup = 06067B161DE726C0001E1EA9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				06067B141DE726C0001E1EA9 /* TomatoSky */,
+				06067B2E1DE726C0001E1EA9 /* TomatoSkyTests */,
+				06067B391DE726C0001E1EA9 /* TomatoSkyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		06067B131DE726C0001E1EA9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0665B4A71DE727E0005E804B /* LaunchScreen.storyboard in Resources */,
+				0665B4AA1DE727E0005E804B /* GameScene.sks in Resources */,
+				0665B4AD1DE727E0005E804B /* Info.plist in Resources */,
+				0665B4A61DE727E0005E804B /* Assets.xcassets in Resources */,
+				0665B4A41DE727E0005E804B /* Actions.sks in Resources */,
+				0665B4A81DE727E0005E804B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06067B2D1DE726C0001E1EA9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06067B381DE726C0001E1EA9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		06067B111DE726C0001E1EA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0665B4AF1DE727E0005E804B /* Platform.swift in Sources */,
+				0665B4AC1DE727E0005E804B /* GameViewController.swift in Sources */,
+				0665B4AB1DE727E0005E804B /* GameScene.swift in Sources */,
+				0665B4A91DE727E0005E804B /* ContactManager.swift in Sources */,
+				0665B4B01DE727E0005E804B /* Tomato.swift in Sources */,
+				0665B4A51DE727E0005E804B /* AppDelegate.swift in Sources */,
+				0665B4AE1DE727E0005E804B /* Mask.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06067B2B1DE726C0001E1EA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06067B341DE726C0001E1EA9 /* TomatoSkyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06067B361DE726C0001E1EA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06067B3F1DE726C0001E1EA9 /* TomatoSkyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		06067B311DE726C0001E1EA9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 06067B141DE726C0001E1EA9 /* TomatoSky */;
+			targetProxy = 06067B301DE726C0001E1EA9 /* PBXContainerItemProxy */;
+		};
+		06067B3C1DE726C0001E1EA9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 06067B141DE726C0001E1EA9 /* TomatoSky */;
+			targetProxy = 06067B3B1DE726C0001E1EA9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0665B4981DE727E0005E804B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0665B4991DE727E0005E804B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0665B49A1DE727E0005E804B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0665B49B1DE727E0005E804B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		06067B411DE726C0001E1EA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		06067B421DE726C0001E1EA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		06067B441DE726C0001E1EA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4FXVFKNYW6;
+				INFOPLIST_FILE = TomatoSky/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = BEPiD.TomatoSky;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		06067B451DE726C0001E1EA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4FXVFKNYW6;
+				INFOPLIST_FILE = TomatoSky/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = BEPiD.TomatoSky;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		06067B471DE726C0001E1EA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TomatoSkyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = BEPiD.TomatoSkyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TomatoSky.app/TomatoSky";
+			};
+			name = Debug;
+		};
+		06067B481DE726C0001E1EA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TomatoSkyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = BEPiD.TomatoSkyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TomatoSky.app/TomatoSky";
+			};
+			name = Release;
+		};
+		06067B4A1DE726C0001E1EA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = TomatoSkyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = BEPiD.TomatoSkyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = TomatoSky;
+			};
+			name = Debug;
+		};
+		06067B4B1DE726C0001E1EA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = TomatoSkyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = BEPiD.TomatoSkyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = TomatoSky;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		06067B101DE726C0001E1EA9 /* Build configuration list for PBXProject "TomatoSky" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06067B411DE726C0001E1EA9 /* Debug */,
+				06067B421DE726C0001E1EA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06067B431DE726C0001E1EA9 /* Build configuration list for PBXNativeTarget "TomatoSky" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06067B441DE726C0001E1EA9 /* Debug */,
+				06067B451DE726C0001E1EA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06067B461DE726C0001E1EA9 /* Build configuration list for PBXNativeTarget "TomatoSkyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06067B471DE726C0001E1EA9 /* Debug */,
+				06067B481DE726C0001E1EA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06067B491DE726C0001E1EA9 /* Build configuration list for PBXNativeTarget "TomatoSkyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06067B4A1DE726C0001E1EA9 /* Debug */,
+				06067B4B1DE726C0001E1EA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 06067B0D1DE726C0001E1EA9 /* Project object */;
+}
