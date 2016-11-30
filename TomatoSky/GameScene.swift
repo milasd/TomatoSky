@@ -45,8 +45,8 @@ class GameScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         /*if (tomato.physicsBody?.isDynamic)! {
             print("a")
-        }
-        tomato.physicsBody?.isDynamic = true*/
+        }*/
+        //tomato.physicsBody?.isDynamic = true
         tomato.tryJump()
     }
     
@@ -54,9 +54,24 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         //Como contato nao funcionou bem para ver o chao, veremos de maneira mais segura
+        
+        if let body = tomato.physicsBody {
+            let dy = body.velocity.dy
+            print(dy)
+            if dy > 0 {
+                // Prevent collisions if the hero is jumping
+                body.collisionBitMask = 0
+            }
+            else {
+                // Allow collisions if the hero is falling
+                body.collisionBitMask = Mask.platform.rawValue
+            }
+        }
+        
         let floorP = CGPoint(x:tomato.position.x,y:tomato.position.y-tomato.radius-0.3)
         if let pl = searchFloor(nodes: nodes(at: floorP)){
             tomato.isOnGround = true
+            //tomato.physicsBody?.isDynamic = false
         }
         else{
             tomato.isOnGround = false
@@ -67,7 +82,7 @@ class GameScene: SKScene {
     
     
     private func searchFloor(nodes : [SKNode]) -> Platform? {
-        for nd in nodes{
+        for nd in nodes {
             if let p = nd as? Platform {
                 return p
             }

@@ -25,6 +25,7 @@ class ContactManager: NSObject, SKPhysicsContactDelegate {
         let tom = ndA as! Tomato
         
         if ndB.isKind(of: Platform.self){
+            
             if checkGround(tom, ndB as! Platform){
                 //tom.touchedGround() Nao funcionou tao bem, SpriteKit bugado =( ver GameScene
             }
@@ -43,9 +44,23 @@ class ContactManager: NSObject, SKPhysicsContactDelegate {
         } else{ return }
         let tom = ndA as! Tomato
         if ndB.isKind(of: Platform.self){
+            //tom.physicsBody!.velocity.dx = 0
+            
+//            let vy = ndA.physicsBody?.velocity.dy
+//            print(vy)
+//            if (vy?.isLess(than: 0))! {
+//                ndB.physicsBody?.collisionBitMask = 0
+//                ndB.physicsBody?.categoryBitMask = 0
+//            }
+//            else {
+//                ndB.physicsBody?.collisionBitMask = Mask.platform.rawValue
+//                ndB.physicsBody?.categoryBitMask = Mask.platform.rawValue
+//            }
+            
             if checkGround(tom, ndB as! Platform){
                 //tom.leftGround() Nao funcionou tao bem infelizmente, SpriteKit bugado =( ver GameScene
                 //tom.physicsBody = Tomato.createPhysics(radius: 30) testar se está mudando depois de colidir
+                //tom.physicsBody!.velocity.dx = 0
             }
         }
     }

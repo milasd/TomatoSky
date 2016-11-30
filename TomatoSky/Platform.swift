@@ -11,6 +11,7 @@ class Platform: SKSpriteNode {
     private class func createPhysics(size: CGSize) -> SKPhysicsBody {
         let p = SKPhysicsBody(rectangleOf: size)
         p.friction = 0
+        p.usesPreciseCollisionDetection = true
         p.categoryBitMask = Mask.platform.rawValue
         p.isDynamic = false
         return p
@@ -19,4 +20,5 @@ class Platform: SKSpriteNode {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 }

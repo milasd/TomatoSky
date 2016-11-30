@@ -28,7 +28,7 @@ public class Tomato: SKNode {
         p.linearDamping = 0
         p.usesPreciseCollisionDetection = true
         p.restitution = 0
-        //p.isDynamic = false
+        p.isDynamic = true
         return p
     }
     
