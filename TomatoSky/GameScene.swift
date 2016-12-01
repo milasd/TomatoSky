@@ -9,7 +9,11 @@ class GameScene: SKScene {
     private var platforms: [Platform]!
     private var collectables: [Collectable]!
     
+    var gameOver = false
+    
     override func didMove(to view: SKView) {
+        gameOver = false
+        
         contactManager = ContactManager()
         tomato = Tomato()
         physicsWorld.contactDelegate = contactManager
@@ -54,20 +58,25 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         //Como contato nao funcionou bem para ver o chao, veremos de maneira mais segura
+        if gameOver {
+            return
+        }
         
+        // Tomato-Platform collision
         if let body = tomato.physicsBody {
             let dy = body.velocity.dy
-            print(dy)
+
             if dy > 0 {
-                // Prevent collisions if the hero is jumping
+                // Prevent collisions if the Tomato is jumping
                 body.collisionBitMask = 0
             }
             else {
-                // Allow collisions if the hero is falling
+                // Allow collisions if the Tomato is falling
                 body.collisionBitMask = Mask.platform.rawValue
             }
         }
         
+        //Check floor?
         let floorP = CGPoint(x:tomato.position.x,y:tomato.position.y-tomato.radius-0.3)
         if let pl = searchFloor(nodes: nodes(at: floorP)){
             tomato.isOnGround = true
@@ -77,9 +86,13 @@ class GameScene: SKScene {
             tomato.isOnGround = false
         }
         print(tomato.isOnGround)
+        print(Int(tomato.position.y))
+        
+        //end game if Tomato falls
+        if Int(tomato.position.y) <= 0 {
+            endGame()
+        }
     }
-    
-    
     
     private func searchFloor(nodes : [SKNode]) -> Platform? {
         for nd in nodes {
@@ -88,5 +101,13 @@ class GameScene: SKScene {
             }
         }
         return nil
+    }
+    
+    func endGame() {
+        gameOver = true
+
+        let fadeOut = SKTransition.fade(withDuration: 1.0)
+        let gameOverScene = GameOverScene(size: self.size)
+        self.view!.presentScene(gameOverScene, transition: fadeOut)
     }
 }
