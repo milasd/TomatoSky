@@ -1,7 +1,11 @@
 import SpriteKit
 import GameplayKit
+import CoreMotion
 
 class GameScene: SKScene {
+    
+    let motionManager = CMMotionManager()
+    var xAcceleration: CGFloat = 0.0
     
     private var tomato: Tomato!
     private var contactManager: ContactManager!
@@ -37,6 +41,30 @@ class GameScene: SKScene {
         addCollectable(x: size.width/4 + 15, y: size.height/4 + 30)
         addCollectable(x: 2*size.width/3, y: size.height/3 + 30)
         
+        //Accelerometer
+        motionManager.accelerometerUpdateInterval = 0.2
+        motionManager.startAccelerometerUpdates(to: OperationQueue.current!, withHandler: {
+            (accelerometerData, error) in
+            self.motionUpdateHandler(accelerometerData: accelerometerData, error: error)
+        })
+    }
+    
+    func motionUpdateHandler(accelerometerData: CMAccelerometerData!, error: Error!) {
+        let acceleration = accelerometerData?.acceleration
+        self.xAcceleration = (CGFloat((acceleration?.x)!) * 0.75) + (self.xAcceleration * 0.25)
+    }
+    
+    override func didSimulatePhysics() {
+        // 1
+        // Set velocity based on x-axis acceleration
+        tomato.physicsBody?.velocity = CGVector(dx: xAcceleration * 400.0, dy: tomato.physicsBody!.velocity.dy)
+        // 2
+        // Check x bounds
+        if tomato.position.x < -20.0 {
+            tomato.position = CGPoint(x: self.size.width + 20.0, y: tomato.position.y)
+        } else if (tomato.position.x > self.size.width + 20.0) {
+            tomato.position = CGPoint(x: -20.0, y: tomato.position.y)
+        }
     }
     
     func createBackgroundNode() -> SKNode {
@@ -115,12 +143,7 @@ class GameScene: SKScene {
         print(Int(tomato.position.y))
         
         //Parallax
-        if tomato.position.y > 200.0 {
-            //backgroundNode.position = CGPoint(x: 0.0, y: -((tomato.position.y - 200.0)/10))
-            //midgroundNode.position = CGPoint(x: 0.0, y: -((player.position.y - 200.0)/4))
-            //foregroundNode.position = CGPoint(x: 0.0, y: -(player.position.y - 200.0))
-        }
-        
+
         //end game if Tomato falls
         if Int(tomato.position.y) <= 0 {
             endGame()

@@ -21,7 +21,6 @@ class GameOverScene: SKScene {
         let gameScene = GameScene(size: self.size)
         self.view!.presentScene(gameScene, transition: fadeOut)
     }
-    
 }
 
 extension GameOverScene {
@@ -34,5 +33,4 @@ extension GameOverScene {
         label.text = text
     
     }
-
 }

@@ -20,6 +20,7 @@ public class Tomato: SKNode {
     
     public class func createPhysics(radius : CGFloat) -> SKPhysicsBody {
         let p = SKPhysicsBody(circleOfRadius: radius)
+        
         p.friction = 1
         p.categoryBitMask = Mask.tomato.rawValue
         p.collisionBitMask = Mask.platform.rawValue
@@ -30,6 +31,7 @@ public class Tomato: SKNode {
         p.usesPreciseCollisionDetection = true
         p.restitution = 0
         p.isDynamic = true
+        
         return p
     }
     
