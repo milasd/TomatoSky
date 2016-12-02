@@ -10,7 +10,8 @@ class Platform: SKSpriteNode {
     
     private class func createPhysics(size: CGSize) -> SKPhysicsBody {
         let p = SKPhysicsBody(rectangleOf: size)
-        p.friction = 0
+        p.friction = 1
+        p.angularDamping = 1
         p.usesPreciseCollisionDetection = true
         p.categoryBitMask = Mask.platform.rawValue
         p.isDynamic = false

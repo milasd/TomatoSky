@@ -20,12 +20,13 @@ public class Tomato: SKNode {
     
     public class func createPhysics(radius : CGFloat) -> SKPhysicsBody {
         let p = SKPhysicsBody(circleOfRadius: radius)
-        p.friction = 0
+        p.friction = 1
         p.categoryBitMask = Mask.tomato.rawValue
         p.collisionBitMask = Mask.platform.rawValue
         p.contactTestBitMask = Mask.platform.rawValue
         p.angularDamping = 0
         p.linearDamping = 0
+        p.allowsRotation = false
         p.usesPreciseCollisionDetection = true
         p.restitution = 0
         p.isDynamic = true

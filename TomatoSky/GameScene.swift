@@ -9,10 +9,19 @@ class GameScene: SKScene {
     private var platforms: [Platform]!
     private var collectables: [Collectable]!
     
+    var backgroundNode: SKNode!
+    var elementsNode: SKNode!
+    var scaleFactor: CGFloat!
+    
     var gameOver = false
     
     override func didMove(to view: SKView) {
         gameOver = false
+        
+        scaleFactor = self.size.width / 320.0
+        
+        backgroundNode = createBackgroundNode()
+        addChild(backgroundNode)
         
         contactManager = ContactManager()
         tomato = Tomato()
@@ -28,6 +37,23 @@ class GameScene: SKScene {
         addCollectable(x: size.width/4 + 15, y: size.height/4 + 30)
         addCollectable(x: 2*size.width/3, y: size.height/3 + 30)
         
+    }
+    
+    func createBackgroundNode() -> SKNode {
+        let backgroundNode = SKNode()
+        
+        let bgColor = UIColor(red: 192/255, green: 225/255, blue: 237/255, alpha: 1)
+        let node = SKSpriteNode(color: bgColor, size: size)
+        
+        //node.setScale(scaleFactor) //should the background change to an image, uncomment this line
+        node.anchorPoint = CGPoint(x: 0.5, y: 0.0)
+        node.position = CGPoint(x: self.size.width / 2, y: 0)
+        //5
+        backgroundNode.addChild(node)
+        
+        // 6
+        // Return the completed background node
+        return backgroundNode
     }
     
     func addPlatform(x: CGFloat, y: CGFloat) {
@@ -87,6 +113,13 @@ class GameScene: SKScene {
         }
         print(tomato.isOnGround)
         print(Int(tomato.position.y))
+        
+        //Parallax
+        if tomato.position.y > 200.0 {
+            //backgroundNode.position = CGPoint(x: 0.0, y: -((tomato.position.y - 200.0)/10))
+            //midgroundNode.position = CGPoint(x: 0.0, y: -((player.position.y - 200.0)/4))
+            //foregroundNode.position = CGPoint(x: 0.0, y: -(player.position.y - 200.0))
+        }
         
         //end game if Tomato falls
         if Int(tomato.position.y) <= 0 {
