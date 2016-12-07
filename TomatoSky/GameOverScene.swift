@@ -12,7 +12,7 @@ class GameOverScene: SKScene {
     
     override func didMove(to view: SKView) {
         let restart = SKLabelNode(fontNamed: "Helvetica-UltraThin")
-        decoration(label: restart, text: "Tap To Restart")
+        decoration(label: restart, text: "Score: \(GameState.sharedInstance.score) \r \n Best Score: \(GameState.sharedInstance.highScore) \r \n Tap To Restart")
         addChild(restart)
     }
     
@@ -26,7 +26,7 @@ class GameOverScene: SKScene {
 extension GameOverScene {
     
     func decoration(label: SKLabelNode, text: String) {
-        label.fontSize = 35
+        label.fontSize = 15
         label.fontColor = SKColor.white
         label.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         label.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center

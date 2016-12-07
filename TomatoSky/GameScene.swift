@@ -16,11 +16,17 @@ class GameScene: SKScene {
     var backgroundNode: SKNode!
     var elementsNode: SKNode!
     var scaleFactor: CGFloat!
+    var scoreLabel: SKLabelNode!
     
     var gameOver = false
     
     override func didMove(to view: SKView) {
         gameOver = false
+        GameState.sharedInstance.score = 0
+        
+        scoreLabel = SKLabelNode(fontNamed: "Avenir-Regular")
+        decorateLabel(label: scoreLabel)
+        addChild(scoreLabel)
         
         scaleFactor = self.size.width / 320.0
         
@@ -36,10 +42,15 @@ class GameScene: SKScene {
         platforms = [Platform]()
         addPlatform(x: size.width/4, y: size.height/4)
         addPlatform(x: 2*size.width/3, y: size.height/3)
+        addPlatform(x: size.width/5, y: size.height/2)
+        addPlatform(x: 2*size.width/3, y: 2*size.height/3)
+        
         
         collectables = [Collectable]()
         addCollectable(x: size.width/4 + 15, y: size.height/4 + 30)
-        addCollectable(x: 2*size.width/3, y: size.height/3 + 30)
+        addCollectable(x: 2*size.width/3 + 15, y: size.height/3 + 30)
+        addCollectable(x: size.width/5, y: size.height/2 + 30)
+        addCollectable(x: 2*size.width/3 - 15, y: 2*size.height/3 + 30)
         
         //Accelerometer
         motionManager.accelerometerUpdateInterval = 0.2
@@ -54,11 +65,17 @@ class GameScene: SKScene {
         self.xAcceleration = (CGFloat((acceleration?.x)!) * 0.75) + (self.xAcceleration * 0.25)
     }
     
+    func decorateLabel(label: SKLabelNode) {
+        label.fontSize = 30
+        label.fontColor = SKColor.white
+        label.position = CGPoint(x: 20, y: self.size.height-50)
+        label.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
+        label.text = String(format: "%d", GameState.sharedInstance.score)
+    }
+    
     override func didSimulatePhysics() {
-        // 1
         // Set velocity based on x-axis acceleration
         tomato.physicsBody?.velocity = CGVector(dx: xAcceleration * 400.0, dy: tomato.physicsBody!.velocity.dy)
-        // 2
         // Check x bounds
         if tomato.position.x < -20.0 {
             tomato.position = CGPoint(x: self.size.width + 20.0, y: tomato.position.y)
@@ -76,11 +93,8 @@ class GameScene: SKScene {
         //node.setScale(scaleFactor) //should the background change to an image, uncomment this line
         node.anchorPoint = CGPoint(x: 0.5, y: 0.0)
         node.position = CGPoint(x: self.size.width / 2, y: 0)
-        //5
         backgroundNode.addChild(node)
-        
-        // 6
-        // Return the completed background node
+
         return backgroundNode
     }
     
@@ -115,6 +129,8 @@ class GameScene: SKScene {
         if gameOver {
             return
         }
+        
+        scoreLabel.text = String(format: "%d", GameState.sharedInstance.score)
         
         // Tomato-Platform collision
         if let body = tomato.physicsBody {
@@ -161,9 +177,12 @@ class GameScene: SKScene {
     
     func endGame() {
         gameOver = true
+        GameState.sharedInstance.saveState()
 
         let fadeOut = SKTransition.fade(withDuration: 1.0)
         let gameOverScene = GameOverScene(size: self.size)
         self.view!.presentScene(gameOverScene, transition: fadeOut)
     }
 }
+
+
