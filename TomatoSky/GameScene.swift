@@ -17,12 +17,18 @@ class GameScene: SKScene {
     var elementsNode: SKNode!
     var scaleFactor: CGFloat!
     var scoreLabel: SKLabelNode!
+    var cameraNode: SKCameraNode!
     
     var gameOver = false
     
     override func didMove(to view: SKView) {
         gameOver = false
         GameState.sharedInstance.score = 0
+        
+        cameraNode = SKCameraNode()
+        camera = cameraNode
+        cameraNode.position.x = self.size.width/2
+        cameraNode.position.y = self.size.height/2
         
         scoreLabel = SKLabelNode(fontNamed: "Avenir-Regular")
         decorateLabel(label: scoreLabel)
@@ -53,7 +59,7 @@ class GameScene: SKScene {
         addCollectable(x: 2*size.width/3 - 15, y: 2*size.height/3 + 30)
         
         //Accelerometer
-        motionManager.accelerometerUpdateInterval = 0.2
+        motionManager.accelerometerUpdateInterval = 0.1
         motionManager.startAccelerometerUpdates(to: OperationQueue.current!, withHandler: {
             (accelerometerData, error) in
             self.motionUpdateHandler(accelerometerData: accelerometerData, error: error)
@@ -62,7 +68,7 @@ class GameScene: SKScene {
     
     func motionUpdateHandler(accelerometerData: CMAccelerometerData!, error: Error!) {
         let acceleration = accelerometerData?.acceleration
-        self.xAcceleration = (CGFloat((acceleration?.x)!) * 0.75) + (self.xAcceleration * 0.25)
+        self.xAcceleration = (CGFloat((acceleration?.x)!) * 1.5) //+ (self.xAcceleration * 0.25)
     }
     
     func decorateLabel(label: SKLabelNode) {
@@ -74,8 +80,6 @@ class GameScene: SKScene {
     }
     
     override func didSimulatePhysics() {
-        // Set velocity based on x-axis acceleration
-        tomato.physicsBody?.velocity = CGVector(dx: xAcceleration * 400.0, dy: tomato.physicsBody!.velocity.dy)
         // Check x bounds
         if tomato.position.x < -20.0 {
             tomato.position = CGPoint(x: self.size.width + 20.0, y: tomato.position.y)
@@ -119,6 +123,7 @@ class GameScene: SKScene {
             print("a")
         }*/
         //tomato.physicsBody?.isDynamic = true
+        super.touchesBegan(touches, with: event)
         tomato.tryJump()
     }
     
@@ -126,11 +131,21 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         //Como contato nao funcionou bem para ver o chao, veremos de maneira mais segura
+        super.update(currentTime)
+        
+        if tomato.position.y > 100 + cameraNode.position.y {
+            cameraNode.position.y = tomato.position.y - 100
+        }
+        
         if gameOver {
             return
         }
         
         scoreLabel.text = String(format: "%d", GameState.sharedInstance.score)
+        scoreLabel.position = CGPoint(x: 20, y: self.size.height/2 + cameraNode.position.y-50)
+        
+        // Set velocity based on x-axis acceleration
+        tomato.physicsBody?.velocity = CGVector(dx: xAcceleration * 400.0, dy: tomato.physicsBody!.velocity.dy)
         
         // Tomato-Platform collision
         if let body = tomato.physicsBody {
@@ -156,12 +171,11 @@ class GameScene: SKScene {
             tomato.isOnGround = false
         }
         print(tomato.isOnGround)
-        print(Int(tomato.position.y))
         
         //Parallax
 
         //end game if Tomato falls
-        if Int(tomato.position.y) <= 0 {
+        if (tomato.position.y) <= (cameraNode.position.y - self.size.height/2) {
             endGame()
         }
     }

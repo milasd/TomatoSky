@@ -21,7 +21,7 @@ public class Tomato: SKNode {
     public class func createPhysics(radius : CGFloat) -> SKPhysicsBody {
         let p = SKPhysicsBody(circleOfRadius: radius)
         
-        p.friction = 1
+        p.friction = 0.5
         p.categoryBitMask = Mask.tomato.rawValue
         p.collisionBitMask = Mask.platform.rawValue
         p.contactTestBitMask = Mask.platform.rawValue
@@ -42,7 +42,7 @@ public class Tomato: SKNode {
     func tryJump(){
         if isOnGround {
             physicsBody!.velocity.dy = jumpSpeed
-            physicsBody!.velocity.dx = jumpSpeed/2
+            //physicsBody!.velocity.dx = jumpSpeed/2
         }
     }
     
