@@ -29,8 +29,9 @@ class GameScene: SKScene {
         camera = cameraNode
         cameraNode.position.x = self.size.width/2
         cameraNode.position.y = self.size.height/2
+        addChild(cameraNode)
         
-        scoreLabel = SKLabelNode(fontNamed: "Avenir-Regular")
+        scoreLabel = SKLabelNode(fontNamed: "AvenirNext-Regular")
         decorateLabel(label: scoreLabel)
         addChild(scoreLabel)
         
@@ -58,17 +59,25 @@ class GameScene: SKScene {
         addCollectable(x: size.width/5, y: size.height/2 + 30)
         addCollectable(x: 2*size.width/3 - 15, y: 2*size.height/3 + 30)
         
+        motionManager.deviceMotionUpdateInterval = 0.1
+        motionManager.startDeviceMotionUpdates(to: OperationQueue.current!, withHandler: {
+            (deviceMotion, error) in
+            self.motionUpdateHandler(deviceMotion: deviceMotion!, error: error)
+
+        })
+
+        
         //Accelerometer
-        motionManager.accelerometerUpdateInterval = 0.1
+        /*motionManager.accelerometerUpdateInterval = 0.1
         motionManager.startAccelerometerUpdates(to: OperationQueue.current!, withHandler: {
             (accelerometerData, error) in
             self.motionUpdateHandler(accelerometerData: accelerometerData, error: error)
-        })
+        })*/
     }
     
-    func motionUpdateHandler(accelerometerData: CMAccelerometerData!, error: Error!) {
-        let acceleration = accelerometerData?.acceleration
-        self.xAcceleration = (CGFloat((acceleration?.x)!) * 1.5) //+ (self.xAcceleration * 0.25)
+    func motionUpdateHandler(deviceMotion: CMDeviceMotion, error: Error!) {
+        let attitude = deviceMotion.attitude.roll
+        self.xAcceleration = (CGFloat(attitude) * 1.5) //+ (self.xAcceleration * 0.25)
     }
     
     func decorateLabel(label: SKLabelNode) {
@@ -95,9 +104,10 @@ class GameScene: SKScene {
         let node = SKSpriteNode(color: bgColor, size: size)
         
         //node.setScale(scaleFactor) //should the background change to an image, uncomment this line
-        node.anchorPoint = CGPoint(x: 0.5, y: 0.0)
-        node.position = CGPoint(x: self.size.width / 2, y: 0)
-        backgroundNode.addChild(node)
+        //node.anchorPoint = CGPoint(x: 0.5, y: 0.0)
+        //node.position = CGPoint(x: self.size.width / 2, y: 0)
+        //backgroundNode.addChild(node)
+        cameraNode.addChild(node)
 
         return backgroundNode
     }
