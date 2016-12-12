@@ -93,6 +93,7 @@ class GameScene: SKScene {
         shape.path = UIBezierPath(roundedRect: CGRect(x: -12, y: -12, width: 76, height: 42), cornerRadius: 5).cgPath
         shape.position = CGPoint(x: 20, y: self.size.height-50)
         shape.fillColor = UIColor(red: 247/255, green: 61/255, blue: 93/255, alpha: 1)
+        shape.strokeColor = UIColor.clear
         scoreShape = shape
         addChild(scoreShape)
         
