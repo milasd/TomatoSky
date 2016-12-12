@@ -8,7 +8,7 @@ class Platform: SKSpriteNode {
         let s = CGSize(width: 100, height: 18)
         //floor = SKSpriteNode(imageNamed: "plataformaGrande")
         //floor.size = s
-        super.init(texture: nil, color: UIColor(red: 119/255, green: 69/255, blue: 61/255, alpha: 1), size: s)
+        super.init(texture: nil, color: UIColor(red: 136/255, green: 95/255, blue: 49/255, alpha: 1), size: s)
         physicsBody = Platform.createPhysics(size: s)
         //addChild(floor)
         

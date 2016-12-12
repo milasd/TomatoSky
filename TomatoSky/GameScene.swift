@@ -14,9 +14,11 @@ class GameScene: SKScene {
     private var collectables: [Collectable]!
     
     var backgroundNode: SKNode!
-    var elementsNode: SKNode!
     var scaleFactor: CGFloat!
+    
     var scoreLabel: SKLabelNode!
+    var scoreShape: SKShapeNode!
+    
     var cameraNode: SKCameraNode!
     
     var gameOver = false
@@ -31,9 +33,8 @@ class GameScene: SKScene {
         cameraNode.position.y = self.size.height/2
         addChild(cameraNode)
         
-        scoreLabel = SKLabelNode(fontNamed: "AvenirNext-Regular")
+        scoreLabel = SKLabelNode(fontNamed: "AvenirNext-Bold")
         decorateLabel(label: scoreLabel)
-        addChild(scoreLabel)
         
         scaleFactor = self.size.width / 320.0
         
@@ -81,11 +82,20 @@ class GameScene: SKScene {
     }
     
     func decorateLabel(label: SKLabelNode) {
-        label.fontSize = 30
+        label.fontSize = 20
         label.fontColor = SKColor.white
-        label.position = CGPoint(x: 20, y: self.size.height-50)
+        label.position = CGPoint(x: 32, y: self.size.height-50)
         label.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
         label.text = String(format: "%d", GameState.sharedInstance.score)
+        addChild(label)
+        
+        let shape = SKShapeNode()
+        shape.path = UIBezierPath(roundedRect: CGRect(x: -12, y: -12, width: 76, height: 42), cornerRadius: 5).cgPath
+        shape.position = CGPoint(x: 20, y: self.size.height-50)
+        shape.fillColor = UIColor(red: 247/255, green: 61/255, blue: 93/255, alpha: 1)
+        scoreShape = shape
+        addChild(scoreShape)
+        
     }
     
     override func didSimulatePhysics() {
@@ -100,7 +110,7 @@ class GameScene: SKScene {
     func createBackgroundNode() -> SKNode {
         let backgroundNode = SKNode()
         
-        let bgColor = UIColor(red: 192/255, green: 225/255, blue: 237/255, alpha: 1)
+        let bgColor = UIColor(red: 6/255, green: 214/255, blue: 255/255, alpha: 1)
         let node = SKSpriteNode(color: bgColor, size: size)
         
         //node.setScale(scaleFactor) //should the background change to an image, uncomment this line
@@ -152,7 +162,8 @@ class GameScene: SKScene {
         }
         
         scoreLabel.text = String(format: "%d", GameState.sharedInstance.score)
-        scoreLabel.position = CGPoint(x: 20, y: self.size.height/2 + cameraNode.position.y-50)
+        scoreLabel.position = CGPoint(x: 32, y: self.size.height/2 + cameraNode.position.y-50)
+        scoreShape.position = CGPoint(x: 20, y: self.size.height/2 + cameraNode.position.y-50)
         
         // Set velocity based on x-axis acceleration
         tomato.physicsBody?.velocity = CGVector(dx: xAcceleration * 400.0, dy: tomato.physicsBody!.velocity.dy)
