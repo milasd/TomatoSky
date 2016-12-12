@@ -22,6 +22,11 @@ class GameOverScene: SKScene {
         
         backgroundNode = createBackgroundNode()
         addChild(backgroundNode)
+        
+        scoreLabel = SKLabelNode()
+        newRecordLabel = SKLabelNode()
+        bestScoreLabel = SKLabelNode()
+        decorateLabels()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -44,6 +49,42 @@ extension GameOverScene {
 //        label.text = text
 //    
 //    }
+    
+    func decorateLabels() {
+        let ptsLabel = SKLabelNode()
+        
+        scoreLabel.text = "\(GameState.sharedInstance.score)"
+        ptsLabel.text = "points"
+        newRecordLabel.text = "that's a new record!!!"
+        bestScoreLabel.text = "best score: \(GameState.sharedInstance.highScore)"
+        
+        scoreLabel.fontName = "Avenir-Black"
+        ptsLabel.fontName = "Avenir-Black"
+        newRecordLabel.fontName = "Avenir-Medium"
+        bestScoreLabel.fontName = "Avenir-Medium"
+        
+        scoreLabel.fontSize = 70
+        ptsLabel.fontSize = 30
+        newRecordLabel.fontSize = 19
+        bestScoreLabel.fontSize = 19
+        
+        scoreLabel.fontColor = UIColor(red: 247/255, green: 61/255, blue: 93/255, alpha: 1)
+        ptsLabel.fontColor = UIColor(red: 247/255, green: 61/255, blue: 93/255, alpha: 1)
+        
+        scoreLabel.position = CGPoint(x: self.size.width/2,  y: self.size.height/2 + 60)
+        ptsLabel.position = CGPoint(x: self.size.width/2,  y: self.size.height/2 + 30)
+        newRecordLabel.position = CGPoint(x: self.size.width/2,  y: self.size.height/2)
+        bestScoreLabel.position = CGPoint(x: self.size.width/2,  y: self.size.height/2)
+        
+        addChild(scoreLabel)
+        addChild(ptsLabel)
+        if GameState.sharedInstance.score <= GameState.sharedInstance.highScore {
+            addChild(bestScoreLabel)
+        }
+        else {
+            addChild(newRecordLabel)
+        }
+    }
     
     func createBackgroundNode() -> SKNode {
         let backgroundNode = SKNode()

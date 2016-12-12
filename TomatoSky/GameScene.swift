@@ -214,6 +214,7 @@ class GameScene: SKScene {
     func endGame() {
         gameOver = true
         GameState.sharedInstance.saveState()
+        
 
         let fadeOut = SKTransition.fade(withDuration: 1.0)
         let gameOverScene = GameOverScene(size: self.size)
