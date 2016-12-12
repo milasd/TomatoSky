@@ -8,12 +8,17 @@
 
 import SpriteKit
 
-class Collectable: SKSpriteNode {
+class Collectable: SKNode {
     
-    init(){
-        let s = CGSize(width: 20, height: 20)
-        super.init(texture: nil, color: UIColor.white, size: s)
-        physicsBody = Collectable.createPhysics(size: s)
+    let sprite: SKSpriteNode!
+    
+    override init(){
+        sprite = SKSpriteNode(imageNamed: "Star")
+        sprite.size = CGSize(width: 35, height: 35)
+        super.init()
+        physicsBody = Collectable.createPhysics(size: sprite.size)
+        addChild(sprite)
+
     }
     
     private class func createPhysics(size: CGSize) -> SKPhysicsBody {
