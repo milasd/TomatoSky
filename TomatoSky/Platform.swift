@@ -16,6 +16,10 @@ class Platform: SKSpriteNode {
         shape.path = UIBezierPath(roundedRect: CGRect(x: -50, y: -9, width: 100, height: 18), cornerRadius: 5).cgPath
         shape.position = CGPoint(x: frame.midX, y: frame.midY)
         shape.fillColor = UIColor(red: 119/255, green: 69/255, blue: 61/255, alpha: 1)
+        //let c1 = CIColor(red: 119/255, green: 69/255, blue: 61/255, alpha: 1)
+        let c2 = CIColor(red: 185/255, green: 148/255, blue: 91/255, alpha: 1)
+        shape.fillTexture = SKTexture.init(size: s, color1: CIColor.white(), color2: c2)
+        shape.strokeColor = UIColor.clear
         addChild(shape)
         
         
