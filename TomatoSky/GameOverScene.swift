@@ -10,10 +10,15 @@ import SpriteKit
 
 class GameOverScene: SKScene {
     
+    var backgroundNode: SKNode!
+    
     override func didMove(to view: SKView) {
         let restart = SKLabelNode(fontNamed: "Helvetica-UltraThin")
         decoration(label: restart, text: "Score: \(GameState.sharedInstance.score) \r \n Best Score: \(GameState.sharedInstance.highScore) \r \n Tap To Restart")
         addChild(restart)
+        
+        backgroundNode = createBackgroundNode()
+        addChild(backgroundNode)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -21,6 +26,7 @@ class GameOverScene: SKScene {
         let gameScene = GameScene(size: self.size)
         self.view!.presentScene(gameScene, transition: fadeOut)
     }
+    
 }
 
 extension GameOverScene {
@@ -32,5 +38,17 @@ extension GameOverScene {
         label.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         label.text = text
     
+    }
+    
+    func createBackgroundNode() -> SKNode {
+        let backgroundNode = SKNode()
+        
+        let bgColor = UIColor(red: 6/255, green: 214/255, blue: 255/255, alpha: 1)
+        let colorNode = SKSpriteNode(color: bgColor, size: size)
+        colorNode.anchorPoint = CGPoint(x: 0.5, y: 0.0)
+        colorNode.position = CGPoint(x: self.size.width / 2, y: 0)
+        backgroundNode.addChild(colorNode)
+        
+        return backgroundNode
     }
 }
