@@ -22,6 +22,8 @@ class GameOverScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        
         let fadeOut = SKTransition.fade(withDuration: 0.5)
         let gameScene = GameScene(size: self.size)
         self.view!.presentScene(gameScene, transition: fadeOut)
@@ -48,6 +50,18 @@ extension GameOverScene {
         colorNode.anchorPoint = CGPoint(x: 0.5, y: 0.0)
         colorNode.position = CGPoint(x: self.size.width / 2, y: 0)
         backgroundNode.addChild(colorNode)
+        
+        let floorColor = UIColor.gray //UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
+        let fs = CGSize(width: size.width, height:size.height/5)
+        let floorNode = SKSpriteNode(color: floorColor, size: fs)
+        floorNode.anchorPoint = CGPoint(x: 0.5, y: 0.0)
+        floorNode.position = CGPoint(x: self.size.width / 2, y: 0)
+        backgroundNode.addChild(floorNode)
+        
+        let deadTomato = SKSpriteNode(imageNamed: "tomateMorto")
+        deadTomato.anchorPoint = CGPoint(x:0.5, y: 0.0)
+        deadTomato.position = CGPoint(x: self.size.width / 2, y: 30)
+        backgroundNode.addChild(deadTomato)
         
         return backgroundNode
     }
