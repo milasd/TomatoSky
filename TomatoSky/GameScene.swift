@@ -33,7 +33,7 @@ class GameScene: SKScene {
         cameraNode.position.y = self.size.height/2
         addChild(cameraNode)
         
-        scoreLabel = SKLabelNode(fontNamed: "AvenirNext-Bold")
+        scoreLabel = SKLabelNode(fontNamed: "Avenir-Black")
         decorateLabel(label: scoreLabel)
         
         scaleFactor = self.size.width / 320.0
@@ -82,20 +82,20 @@ class GameScene: SKScene {
     }
     
     func decorateLabel(label: SKLabelNode) {
-        label.fontSize = 20
-        label.fontColor = SKColor.white
-        label.position = CGPoint(x: 32, y: self.size.height-50)
-        label.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
-        label.text = String(format: "%d", GameState.sharedInstance.score)
-        addChild(label)
-        
         let shape = SKShapeNode()
+        
         shape.path = UIBezierPath(roundedRect: CGRect(x: -12, y: -12, width: 76, height: 42), cornerRadius: 5).cgPath
         shape.position = CGPoint(x: 20, y: self.size.height-50)
         shape.fillColor = UIColor(red: 247/255, green: 61/255, blue: 93/255, alpha: 1)
         shape.strokeColor = UIColor.clear
         scoreShape = shape
         addChild(scoreShape)
+        
+        label.fontSize = 20
+        label.fontColor = SKColor.white
+        label.position = CGPoint(x: 46, y: self.size.height-50)
+        label.text = String(format: "%d", GameState.sharedInstance.score)
+        addChild(label)
         
     }
     
@@ -163,8 +163,13 @@ class GameScene: SKScene {
         }
         
         scoreLabel.text = String(format: "%d", GameState.sharedInstance.score)
-        scoreLabel.position = CGPoint(x: 32, y: self.size.height/2 + cameraNode.position.y-50)
+        scoreLabel.position = CGPoint(x: 46, y: self.size.height/2 + cameraNode.position.y-50)
         scoreShape.position = CGPoint(x: 20, y: self.size.height/2 + cameraNode.position.y-50)
+        
+        if scoreLabel.frame.width > 74 {
+            let scalingFactor = 74 / scoreLabel.frame.width
+            scoreLabel.fontSize *= scalingFactor
+        }
         
         // Set velocity based on x-axis acceleration
         tomato.physicsBody?.velocity = CGVector(dx: xAcceleration * 400.0, dy: tomato.physicsBody!.velocity.dy)
