@@ -112,14 +112,28 @@ class GameScene: SKScene {
         let backgroundNode = SKNode()
         
         let bgColor = UIColor(red: 6/255, green: 214/255, blue: 255/255, alpha: 1)
-        let node = SKSpriteNode(color: bgColor, size: size)
+        let colorNode = SKSpriteNode(color: bgColor, size: size)
         
         //node.setScale(scaleFactor) //should the background change to an image, uncomment this line
         //node.anchorPoint = CGPoint(x: 0.5, y: 0.0)
         //node.position = CGPoint(x: self.size.width / 2, y: 0)
         //backgroundNode.addChild(node)
-        cameraNode.addChild(node)
-
+        cameraNode.addChild(colorNode)
+        
+        let cloud1 = SKSpriteNode(imageNamed: "nuvem")
+        let cloud2 = SKSpriteNode(imageNamed: "nuvem")
+        let cloud3 = SKSpriteNode(imageNamed: "nuvem")
+        let cloud4 = SKSpriteNode(imageNamed: "nuvem")
+        
+        cloud1.position = CGPoint(x: 0, y: 0)
+        cameraNode.addChild(cloud1)
+        cloud2.position = CGPoint(x: -60, y: -180)
+        cameraNode.addChild(cloud2)
+        cloud3.position = CGPoint(x: 80, y: 160)
+        cameraNode.addChild(cloud3)
+        cloud4.position = CGPoint(x: -100, y: 195)
+        cameraNode.addChild(cloud4)
+        
         return backgroundNode
     }
     

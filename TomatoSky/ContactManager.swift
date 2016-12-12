@@ -29,7 +29,7 @@ class ContactManager: NSObject, SKPhysicsContactDelegate {
             }
         }
         if ndB.isKind(of: Collectable.self) {
-            GameState.sharedInstance.score += 10000000
+            GameState.sharedInstance.score += 10
             ndB.removeFromParent()
         }
         
