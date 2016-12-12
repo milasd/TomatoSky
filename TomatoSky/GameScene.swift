@@ -23,6 +23,8 @@ class GameScene: SKScene {
     
     var gameOver = false
     
+    var floor: SKSpriteNode!
+    
     override func didMove(to view: SKView) {
         gameOver = false
         GameState.sharedInstance.score = 0
@@ -44,7 +46,7 @@ class GameScene: SKScene {
         contactManager = ContactManager()
         tomato = Tomato()
         physicsWorld.contactDelegate = contactManager
-        tomato.position = CGPoint(x:size.width/4,y:size.height/4 + 100) //+30
+        tomato.position = CGPoint(x:size.width/2, y:30) //+30
         addChild(tomato)
         
         platforms = [Platform]()
@@ -59,6 +61,8 @@ class GameScene: SKScene {
         addCollectable(x: 2*size.width/3 + 15, y: size.height/3 + 30)
         addCollectable(x: size.width/5, y: size.height/2 + 30)
         addCollectable(x: 2*size.width/3 - 15, y: 2*size.height/3 + 30)
+        
+        addGroundFloor(x: 0, y: 0)
         
         motionManager.deviceMotionUpdateInterval = 0.1
         motionManager.startDeviceMotionUpdates(to: OperationQueue.current!, withHandler: {
@@ -145,6 +149,13 @@ class GameScene: SKScene {
         addChild(p)
     }
     
+    func addGroundFloor(x: CGFloat, y: CGFloat) {
+        let f = GroundFloor()
+        
+        f.position = CGPoint(x: x, y: y)
+        addChild(f)
+    }
+    
     func addCollectable(x: CGFloat, y: CGFloat) {
         let c = Collectable()
         
@@ -204,13 +215,17 @@ class GameScene: SKScene {
         
         //Check floor?
         let floorP = CGPoint(x:tomato.position.x,y:tomato.position.y-tomato.radius-0.3)
-        if let pl = searchFloor(nodes: nodes(at: floorP)){
+        if let pl = searchFloor(nodes: nodes(at: floorP)) {
             tomato.isOnGround = true
             //tomato.physicsBody?.isDynamic = false
         }
-        else{
+        else if let pl = searchFloor2(nodes: nodes(at: floorP)) {
+            tomato.isOnGround = true
+        }
+        else {
             tomato.isOnGround = false
         }
+        
         print(tomato.isOnGround)
         
         //Parallax
@@ -224,6 +239,15 @@ class GameScene: SKScene {
     private func searchFloor(nodes : [SKNode]) -> Platform? {
         for nd in nodes {
             if let p = nd as? Platform {
+                return p
+            }
+        }
+        return nil
+    }
+    
+    private func searchFloor2(nodes : [SKNode]) -> GroundFloor? {
+        for nd in nodes {
+            if let p = nd as? GroundFloor {
                 return p
             }
         }

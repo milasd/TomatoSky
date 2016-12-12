@@ -4,7 +4,7 @@ public class Tomato: SKNode {
     
     let sprite: SKSpriteNode
 
-    var isOnGround = false
+    var isOnGround = true
     
     var jumpSpeed: CGFloat = 700
     

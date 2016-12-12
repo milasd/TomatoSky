@@ -95,7 +95,7 @@ extension GameOverScene {
         colorNode.position = CGPoint(x: self.size.width / 2, y: 0)
         backgroundNode.addChild(colorNode)
         
-        let floorColor = UIColor.gray //UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
+        let floorColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1) //UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
         let fs = CGSize(width: size.width, height:size.height/5)
         let floorNode = SKSpriteNode(color: floorColor, size: fs)
         floorNode.anchorPoint = CGPoint(x: 0.5, y: 0.0)
