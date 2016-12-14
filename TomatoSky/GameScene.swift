@@ -10,7 +10,7 @@ class GameScene: SKScene {
     private var tomato: Tomato!
     private var contactManager: ContactManager!
     
-    private var platforms: [Platform]!
+    private var platforms: [Platform] = []
     private var collectables: [Collectable]!
     
     var backgroundNode: SKNode!
@@ -24,6 +24,8 @@ class GameScene: SKScene {
     var gameOver = false
     
     var floor: SKSpriteNode!
+    
+    var cont: Int = 0
     
     override func didMove(to view: SKView) {
         gameOver = false
@@ -144,6 +146,11 @@ class GameScene: SKScene {
         let cloud3 = SKSpriteNode(imageNamed: "nuvem")
         let cloud4 = SKSpriteNode(imageNamed: "nuvem")
         
+        cloud1.alpha = 0.75
+        cloud2.alpha = 0.75
+        cloud3.alpha = 0.75
+        cloud4.alpha = 0.75
+        
         cloud1.position = CGPoint(x: 0, y: 0)
         cameraNode.addChild(cloud1)
         cloud2.position = CGPoint(x: -60, y: -180)
@@ -240,8 +247,18 @@ class GameScene: SKScene {
         else {
             tomato.isOnGround = false
         }
+    
+        //print(tomato.isOnGround)
         
-        print(tomato.isOnGround)
+        if let i = platforms.index(where: {$0.position.y < (cameraNode.position.y - self.size.height/2)}) {
+            platforms[i].removeFromParent()
+            platforms.remove(at: i)
+            print("remove")
+            let p = generate(x: (platforms.last?.position.x)!, y: (platforms.last?.position.y)!, size: size)
+            addPlatform(x: p.0, y: p.1)
+            cont += 1
+            print("add \(cont)")
+        }
         
         //Parallax
 
