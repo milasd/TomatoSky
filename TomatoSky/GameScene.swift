@@ -60,10 +60,10 @@ class GameScene: SKScene {
         addPlatform(x: size.width/2 + 20, y: 6*size.height/5)
         addPlatform(x: 10, y: 900)
         addPlatform(x: 300, y: 1000)
-        addPlatform(x: 180, y: 1150)
-        addPlatform(x: 220, y: 1320)
-        addPlatform(x: 90, y: 1420)
-        addPlatform(x: 100, y: 1600)
+//        addPlatform(x: 180, y: 1150)
+//        addPlatform(x: 220, y: 1320)
+//        addPlatform(x: 90, y: 1420)
+//        addPlatform(x: 100, y: 1600)
         
         
         collectables = [Collectable]()
@@ -73,9 +73,9 @@ class GameScene: SKScene {
         addCollectable(x: 2*size.width/3 - 15, y: 2*size.height/3 + 30)
         addCollectable(x:4*size.width/3 + 15, y: 2*size.height/3 + 30)
         addCollectable(x: size.width/2 + 20 + 15, y: 6*size.height/5 + 30)
-        addCollectable(x: 180 + 15, y: 1150 + 30)
-        addCollectable(x: 220 + 15, y: 1320 + 30)
-        addCollectable(x: 100 + 15, y: 1600 + 30)
+//        addCollectable(x: 180 + 15, y: 1150 + 30)
+//        addCollectable(x: 220 + 15, y: 1320 + 30)
+//        addCollectable(x: 100 + 15, y: 1600 + 30)
         
         addGroundFloor(x: 0, y: 0)
         
