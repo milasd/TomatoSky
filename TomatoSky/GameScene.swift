@@ -13,8 +13,9 @@ class GameScene: SKScene {
     private var platforms: [Platform] = []
     private var collectables: [Collectable]!
     
-    var backgroundNode: SKNode!
-    var midgroundNode: SKNode!
+    var backgroundNode: SKSpriteNode!
+    var midgroundNode: SKSpriteNode!
+    var midgroundNodeNext: SKSpriteNode!
     var scaleFactor: CGFloat!
     
     var scoreLabel: SKLabelNode!
@@ -46,6 +47,9 @@ class GameScene: SKScene {
         backgroundNode = createBackgroundNode()
         addChild(backgroundNode)
         midgroundNode = createClouds()
+        midgroundNodeNext = createClouds()
+        midgroundNodeNext.position.x = midgroundNode.position.x - size.width
+        
         
         contactManager = ContactManager()
         tomato = Tomato()
@@ -114,6 +118,7 @@ class GameScene: SKScene {
         label.position = CGPoint(x: 46, y: self.size.height-50)
         label.text = String(format: "%d", GameState.sharedInstance.score)
         label.zPosition = 6
+        
         addChild(label)
         
     }
@@ -127,8 +132,8 @@ class GameScene: SKScene {
         }
     }
     
-    func createBackgroundNode() -> SKNode {
-        let backgroundNode = SKNode()
+    func createBackgroundNode() -> SKSpriteNode {
+        let backgroundNode = SKSpriteNode()
         
         let bgColor = UIColor(red: 6/255, green: 214/255, blue: 255/255, alpha: 1)
         let colorNode = SKSpriteNode(color: bgColor, size: size)
@@ -143,8 +148,8 @@ class GameScene: SKScene {
         return backgroundNode
     }
     
-    func createClouds() -> SKNode {
-        let midgroundNode = SKNode()
+    func createClouds() -> SKSpriteNode {
+        let midgroundNode = SKSpriteNode()
         
         let cloud1 = SKSpriteNode(imageNamed: "nuvem")
         let cloud2 = SKSpriteNode(imageNamed: "nuvem")
@@ -172,6 +177,22 @@ class GameScene: SKScene {
         cameraNode.addChild(midgroundNode)
         
         return midgroundNode
+    }
+    
+    func moveSprite(sprite: SKSpriteNode,
+                    nextSprite: SKSpriteNode, speed: CGFloat) -> Void {
+        for spriteToMove in [sprite, nextSprite] {
+            
+            spriteToMove.position.x += speed
+            
+            if spriteToMove.frame.minX > self.frame.maxX {
+                spriteToMove.position =
+                    CGPoint(x: spriteToMove.position.x -
+                        spriteToMove.size.width * 2,
+                            y: spriteToMove.position.y)
+            }
+            
+        }
     }
     
     func addPlatform(x: CGFloat, y: CGFloat) {
@@ -212,6 +233,7 @@ class GameScene: SKScene {
         //Como contato nao funcionou bem para ver o chao, veremos de maneira mais segura
         super.update(currentTime)
         
+        // Move camera if tomato jumps high
         if tomato.position.y > 100 + cameraNode.position.y {
             cameraNode.position.y = tomato.position.y - 100
         }
@@ -220,10 +242,14 @@ class GameScene: SKScene {
             return
         }
         
+        //Cloud Parallax
+        self.moveSprite(sprite: midgroundNode, nextSprite: midgroundNodeNext, speed: 0.08)
+        
         scoreLabel.text = String(format: "%d", GameState.sharedInstance.score)
         scoreLabel.position = CGPoint(x: 46, y: self.size.height/2 + cameraNode.position.y-50)
-        scoreShape.position = CGPoint(x: 20, y: self.size.height/2 + cameraNode.position.y-50)
+        scoreShape.position = CGPoint(x: 20, y: self.size.height/2 + cameraNode.position.y-48)
         
+        //Scale label font
         if scoreLabel.frame.width > 74 {
             let scalingFactor = 74 / scoreLabel.frame.width
             scoreLabel.fontSize *= scalingFactor
