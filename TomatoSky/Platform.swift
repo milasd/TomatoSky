@@ -6,9 +6,10 @@ class Platform: SKSpriteNode {
     
     init(){
         let s = CGSize(width: 100, height: 18)
+        let s1 = CGSize(width: 100, height: 1)
         //floor = SKSpriteNode(imageNamed: "plataformaGrande")
         //floor.size = s
-        super.init(texture: nil, color: UIColor(red: 136/255, green: 95/255, blue: 49/255, alpha: 0), size: s)
+        super.init(texture: nil, color: UIColor(red: 136/255, green: 95/255, blue: 49/255, alpha: 0), size: s1)
         physicsBody = Platform.createPhysics(size: s)
         //addChild(floor)
         
@@ -20,6 +21,7 @@ class Platform: SKSpriteNode {
         let c2 = CIColor(red: 185/255, green: 148/255, blue: 91/255, alpha: 1)
         shape.fillTexture = SKTexture.init(size: s, color1: CIColor.white(), color2: c2)
         shape.strokeColor = UIColor.clear
+        shape.zPosition = 2
         addChild(shape)
         
         
@@ -28,7 +30,7 @@ class Platform: SKSpriteNode {
     private class func createPhysics(size: CGSize) -> SKPhysicsBody {
         let p = SKPhysicsBody(rectangleOf: size)
         
-        p.friction = 0.5
+        p.friction = 0
         p.angularDamping = 1
         p.usesPreciseCollisionDetection = true
         p.categoryBitMask = Mask.platform.rawValue

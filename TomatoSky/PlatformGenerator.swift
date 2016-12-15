@@ -37,6 +37,13 @@ extension GameScene {
         if targetY - y > 120 {
             targetY = 120 + y
         }
+        
+        if targetX < 0 {
+            targetX = 0
+        }
+        else if targetX > size.width {
+            targetX = size.width
+        }
     
         return (targetX, targetY)
     }

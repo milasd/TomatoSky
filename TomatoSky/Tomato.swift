@@ -14,6 +14,7 @@ public class Tomato: SKNode {
         sprite = SKSpriteNode(imageNamed: "Tomatinho")
         sprite.size = CGSize(width: 2*radius, height: 2*radius)
         super.init()
+        sprite.zPosition = 3
         physicsBody = Tomato.createPhysics(radius: radius)
         addChild(sprite)
     }

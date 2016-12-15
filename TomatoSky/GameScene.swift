@@ -14,6 +14,7 @@ class GameScene: SKScene {
     private var collectables: [Collectable]!
     
     var backgroundNode: SKNode!
+    var midgroundNode: SKNode!
     var scaleFactor: CGFloat!
     
     var scoreLabel: SKLabelNode!
@@ -44,6 +45,7 @@ class GameScene: SKScene {
         
         backgroundNode = createBackgroundNode()
         addChild(backgroundNode)
+        midgroundNode = createClouds()
         
         contactManager = ContactManager()
         tomato = Tomato()
@@ -87,19 +89,13 @@ class GameScene: SKScene {
             self.motionUpdateHandler(deviceMotion: deviceMotion!, error: error)
 
         })
-
-        
-        //Accelerometer
-        /*motionManager.accelerometerUpdateInterval = 0.1
-        motionManager.startAccelerometerUpdates(to: OperationQueue.current!, withHandler: {
-            (accelerometerData, error) in
-            self.motionUpdateHandler(accelerometerData: accelerometerData, error: error)
-        })*/
     }
     
     func motionUpdateHandler(deviceMotion: CMDeviceMotion, error: Error!) {
-        let attitude = deviceMotion.attitude.roll
-        self.xAcceleration = (CGFloat(attitude) * 1.5) //+ (self.xAcceleration * 0.25)
+        //let attitude = deviceMotion.attitude.roll
+        let attitude = deviceMotion.attitude.quaternion.y
+        print(attitude)
+        self.xAcceleration = (CGFloat(attitude) * 4.5) //+ (self.xAcceleration * 0.25)
     }
     
     func decorateLabel(label: SKLabelNode) {
@@ -110,12 +106,14 @@ class GameScene: SKScene {
         shape.fillColor = UIColor(red: 247/255, green: 61/255, blue: 93/255, alpha: 1)
         shape.strokeColor = UIColor.clear
         scoreShape = shape
+        scoreShape.zPosition = 5
         addChild(scoreShape)
         
         label.fontSize = 20
         label.fontColor = SKColor.white
         label.position = CGPoint(x: 46, y: self.size.height-50)
         label.text = String(format: "%d", GameState.sharedInstance.score)
+        label.zPosition = 6
         addChild(label)
         
     }
@@ -134,12 +132,19 @@ class GameScene: SKScene {
         
         let bgColor = UIColor(red: 6/255, green: 214/255, blue: 255/255, alpha: 1)
         let colorNode = SKSpriteNode(color: bgColor, size: size)
+        colorNode.zPosition = 0
         
         //node.setScale(scaleFactor) //should the background change to an image, uncomment this line
         //node.anchorPoint = CGPoint(x: 0.5, y: 0.0)
         //node.position = CGPoint(x: self.size.width / 2, y: 0)
         //backgroundNode.addChild(node)
         cameraNode.addChild(colorNode)
+        
+        return backgroundNode
+    }
+    
+    func createClouds() -> SKNode {
+        let midgroundNode = SKNode()
         
         let cloud1 = SKSpriteNode(imageNamed: "nuvem")
         let cloud2 = SKSpriteNode(imageNamed: "nuvem")
@@ -152,15 +157,21 @@ class GameScene: SKScene {
         cloud4.alpha = 0.75
         
         cloud1.position = CGPoint(x: 0, y: 0)
-        cameraNode.addChild(cloud1)
+        cloud1.zPosition = 1
+        midgroundNode.addChild(cloud1)
         cloud2.position = CGPoint(x: -60, y: -180)
-        cameraNode.addChild(cloud2)
+        cloud2.zPosition = 1
+        midgroundNode.addChild(cloud2)
         cloud3.position = CGPoint(x: 80, y: 160)
-        cameraNode.addChild(cloud3)
+        cloud3.zPosition = 1
+        midgroundNode.addChild(cloud3)
         cloud4.position = CGPoint(x: -100, y: 195)
-        cameraNode.addChild(cloud4)
+        cloud4.zPosition = 1
+        midgroundNode.addChild(cloud4)
         
-        return backgroundNode
+        cameraNode.addChild(midgroundNode)
+        
+        return midgroundNode
     }
     
     func addPlatform(x: CGFloat, y: CGFloat) {
