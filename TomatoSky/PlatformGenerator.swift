@@ -20,29 +20,22 @@ extension GameScene {
         let pi = Double(M_PI)
         randomAngle *=  pi / 180
         
-        if randomAngle >= 0.83 * pi {
-            randomAngle = randomAngle.truncatingRemainder(dividingBy: pi)
-        }
-
-        
         var targetX = CGFloat(randomDistance) * cos(CGFloat(randomAngle)) + x
         var targetY = CGFloat(randomDistance) * sin(CGFloat(randomAngle)) + y
-        
-        targetX = targetX.truncatingRemainder(dividingBy: size.width)
         
         if targetY - y < 100  {
             targetY = 100 + y
         }
         
-        if targetY - y > 120 {
-            targetY = 120 + y
+        if targetY - y > 160 {
+            targetY = 160 + y
         }
         
         if targetX < 0 {
-            targetX = 0
+            targetX *= -1
         }
         else if targetX > size.width {
-            targetX = size.width
+            targetX -= size.width
         }
     
         return (targetX, targetY)

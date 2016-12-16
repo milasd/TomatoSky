@@ -22,6 +22,7 @@ class Platform: SKSpriteNode {
         shape.fillTexture = SKTexture.init(size: s, color1: CIColor.white(), color2: c2)
         shape.strokeColor = UIColor.clear
         shape.zPosition = 2
+        shape.physicsBody?.collisionBitMask = 0
         addChild(shape)
         
         

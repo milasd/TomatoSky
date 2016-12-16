@@ -8,6 +8,7 @@ class GameScene: SKScene {
     var xAcceleration: CGFloat = 0.0
     
     private var tomato: Tomato!
+    private var platform: Platform!
     private var contactManager: ContactManager!
     
     private var platforms: [Platform] = []

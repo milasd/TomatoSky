@@ -6,7 +6,7 @@ public class Tomato: SKNode {
 
     var isOnGround = true
     
-    var jumpSpeed: CGFloat = 800
+    var jumpSpeed: CGFloat = 700
     
     let radius: CGFloat = 20
     
