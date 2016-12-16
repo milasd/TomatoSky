@@ -292,8 +292,12 @@ class GameScene: SKScene {
             platforms[i].removeFromParent()
             platforms.remove(at: i)
             print("remove")
-            let p = generate(x: (platforms.last?.position.x)!, y: (platforms.last?.position.y)!, size: size)
+            
+            let p = generatePlatform(x: (platforms.last?.position.x)!, y: (platforms.last?.position.y)!, size: size)
             addPlatform(x: p.0, y: p.1)
+            
+            let c = generateCollectable(x: (platforms.last?.frame.minX)!, y: (platforms.last?.position.y)!)
+            addCollectable(x: c.0, y: c.1)
             cont += 1
             print("add \(cont)")
         }

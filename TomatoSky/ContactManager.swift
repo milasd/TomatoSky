@@ -43,7 +43,7 @@ class ContactManager: NSObject, SKPhysicsContactDelegate {
         } else{ return }
         let tom = ndA as! Tomato
         if ndB.isKind(of: Platform.self){
-            GameState.sharedInstance.score += 80
+            //GameState.sharedInstance.score += 80
             if checkGround(tom, ndB as! Platform){
                 //tom.leftGround() Nao funcionou tao bem infelizmente, SpriteKit bugado =( ver GameScene
                 //tom.physicsBody = Tomato.createPhysics(radius: 30) testar se está mudando depois de colidir

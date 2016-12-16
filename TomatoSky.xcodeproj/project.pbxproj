@@ -27,6 +27,7 @@
 		0665B4AF1DE727E0005E804B /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0665B4A21DE727E0005E804B /* Platform.swift */; };
 		0665B4B01DE727E0005E804B /* Tomato.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0665B4A31DE727E0005E804B /* Tomato.swift */; };
 		068865331E00F16C00D580DE /* PlatformGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068865321E00F16C00D580DE /* PlatformGenerator.swift */; };
+		068D86F71E03AD2D00F4D6F8 /* InitialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068D86F61E03AD2D00F4D6F8 /* InitialScene.swift */; };
 		06C5A5AA1DF78CE70091C3D7 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C5A5A91DF78CE70091C3D7 /* GameState.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		0665B4A21DE727E0005E804B /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		0665B4A31DE727E0005E804B /* Tomato.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tomato.swift; sourceTree = "<group>"; };
 		068865321E00F16C00D580DE /* PlatformGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformGenerator.swift; sourceTree = "<group>"; };
+		068D86F61E03AD2D00F4D6F8 /* InitialScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialScene.swift; sourceTree = "<group>"; };
 		06C5A5A91DF78CE70091C3D7 /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,11 +150,12 @@
 				0665B4981DE727E0005E804B /* LaunchScreen.storyboard */,
 				0665B49A1DE727E0005E804B /* Main.storyboard */,
 				0665B49C1DE727E0005E804B /* ContactManager.swift */,
+				068D86F61E03AD2D00F4D6F8 /* InitialScene.swift */,
 				0665B49D1DE727E0005E804B /* GameScene.sks */,
 				0665B49E1DE727E0005E804B /* GameScene.swift */,
 				06C5A5A91DF78CE70091C3D7 /* GameState.swift */,
-				061ECC511DEF42B500CC8735 /* GameOverScene.swift */,
 				0665B49F1DE727E0005E804B /* GameViewController.swift */,
+				061ECC511DEF42B500CC8735 /* GameOverScene.swift */,
 				0665B4A01DE727E0005E804B /* Info.plist */,
 				0665B4A11DE727E0005E804B /* Mask.swift */,
 				063076C71DFE8A01002C1280 /* GroundFloor.swift */,
@@ -312,6 +315,7 @@
 				0665B4B01DE727E0005E804B /* Tomato.swift in Sources */,
 				0665B4A51DE727E0005E804B /* AppDelegate.swift in Sources */,
 				068865331E00F16C00D580DE /* PlatformGenerator.swift in Sources */,
+				068D86F71E03AD2D00F4D6F8 /* InitialScene.swift in Sources */,
 				0663F8C51DEE95B400297C1D /* Collectable.swift in Sources */,
 				06C5A5AA1DF78CE70091C3D7 /* GameState.swift in Sources */,
 				061ECC521DEF42B500CC8735 /* GameOverScene.swift in Sources */,

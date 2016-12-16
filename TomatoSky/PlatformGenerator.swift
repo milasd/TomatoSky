@@ -14,7 +14,7 @@ extension GameScene {
     //let max: CGFloat = 500
     //let min: CGFloat = 100
     
-    func generate(x:CGFloat, y:CGFloat, size: CGSize) -> (CGFloat, CGFloat) {
+    func generatePlatform(x:CGFloat, y:CGFloat, size: CGSize) -> (CGFloat, CGFloat) {
         let randomDistance = arc4random_uniform(100) + 100
         var randomAngle = Double(arc4random_uniform(180))
         let pi = Double(M_PI)
@@ -37,7 +37,16 @@ extension GameScene {
         else if targetX > size.width {
             targetX -= size.width
         }
+
+        return (targetX, targetY)
+    }
     
+    func generateCollectable(x:CGFloat, y:CGFloat) -> (CGFloat, CGFloat) {
+        let randomDistance = arc4random_uniform(100)
+        
+        var targetX = CGFloat(randomDistance) + x
+        let targetY = y + 30
+        
         return (targetX, targetY)
     }
     
